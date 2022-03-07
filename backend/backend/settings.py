@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import django_extensions
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-1@ae#n6$u72a_xhc6cpp$dxifh+2g=nm@-_jmszvk!o48a!d2_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.32','127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com','192.168.1.32','127.0.0.1']
 CORS_ALLOW_HEADERS = [
    
     'accept',
@@ -162,3 +163,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL ='/media/'
+django_heroku.settings(locals())
